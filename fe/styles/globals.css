@@ -1,0 +1,137 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+.test-tailwind {
+  @apply bg-green-500 text-white text-3xl p-5;
+}
+
+.title-kategori {
+  font-size: 2.5rem;      /* lebih besar dari text-2xl */
+  font-weight: 600;
+  margin-top: 6rem;       /* jarak dari header */
+  margin-bottom: 0.3rem;    /* jarak ke tombol */
+  text-align: center;
+  color: #333;
+}
+
+
+
+.btn-tambah {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+  border: 2px solid #810000;
+  color: #810000;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  margin-right: 1rem;   /* jarak ke judul */
+  margin-bottom: 2rem;   /* jarak ke tabel */
+}
+
+
+.btn-tambah:hover {
+  background-color: #810000;
+  color: #fff;
+}
+
+.btn-pdf {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* jarak icon dan teks */
+  border: 2px solid #810000;
+  background-color: #810000; /* merah */
+  color: #ffffff; /* teks putih */
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  margin-right: 1rem; /* jarak ke tombol sebelah */
+}
+
+.btn-pdf:hover {
+  background-color: #a10000; /* sedikit lebih terang saat hover */
+}
+
+.btn-excel {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* jarak icon dan teks */
+  border: 2px solid #008000;
+  background-color: #008000; /* hijau */
+  color: #ffffff; /* teks putih */
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.btn-excel:hover {
+  background-color: #00a000; /* lebih terang saat hover */
+}
+
+
+.input-besar {
+  border: 2px solid #810000; /* border merah tebal */
+  border-radius: 12px;       /* sudut membulat */
+  padding: 0 20px;           /* padding kiri & kanan */
+  height: 60px;              /* tinggi kotak */
+  width: 380px;              /* lebar kotak */
+  font-size: 0.9rem;         /* teks kecil */
+  line-height: 1.2rem;       /* teks vertikal center */
+  box-sizing: border-box;    /* supaya padding dihitung di width */
+}
