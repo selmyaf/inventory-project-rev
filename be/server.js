@@ -6,7 +6,6 @@ const path = require("path");
 
 const app = express();
 
-
 // --- CORS ---
 app.use(cors());
 app.options("*", cors()); // handle preflight request
