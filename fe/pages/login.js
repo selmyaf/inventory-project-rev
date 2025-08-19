@@ -24,9 +24,18 @@ export default function LoginPage() {
         alert(res.data.message);
       }
     } catch (err) {
-      console.error(err);
-      alert("Terjadi kesalahan pada server");
-    }
+  if (err.response) {
+    // Server balikin error (misal 400, 401, 500)
+    alert(`❌ Error ${err.response.status}: ${err.response.data.message || "Terjadi kesalahan"}`);
+  } else if (err.request) {
+    // Request terkirim tapi server gak respon
+    alert("⚠️ Server tidak merespon. Coba cek ngrok atau koneksi internet.");
+  } else {
+    // Error lain
+    alert("⚡ Error: " + err.message);
+  }
+}
+
   };
 
   return (
