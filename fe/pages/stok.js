@@ -20,7 +20,7 @@ export default function StokPage() {
   // Ambil stok
   const fetchStok = async () => {
     try {
-      const res = await axios.get("https://89b809a86d32.ngrok-free.app/stok");
+      const res = await axios.get("https://df7ba32be060.ngrok-free.app/stok");
 
       setStok(res.data);
     } catch (err) {
@@ -31,7 +31,7 @@ export default function StokPage() {
   // Ambil produk untuk dropdown
   const fetchProduk = async () => {
     try {
-      const res = await axios.get("https://89b809a86d32.ngrok-free.app/produk");
+      const res = await axios.get("https://df7ba32be060.ngrok-free.app/produk");
 
       console.log("Produk dropdown:", res.data);
       setProduk(res.data);
@@ -45,7 +45,7 @@ export default function StokPage() {
     e.preventDefault();
     if (!idProduk || !jumlah) return alert("Semua field wajib diisi!");
     try {
-      await axios.post("https://89b809a86d32.ngrok-free.app/stok", {
+      await axios.post("https://df7ba32be060.ngrok-free.app/stok", {
         id_produk: idProduk,
         jumlah_barang: parseInt(jumlah, 10)
       });

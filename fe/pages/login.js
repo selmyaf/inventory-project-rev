@@ -14,7 +14,7 @@ export default function LoginPage() {
     e.preventDefault();
     try {
       const res = await axios.post(
-      "https://89b809a86d32.ngrok-free.app/login",
+      "https://df7ba32be060.ngrok-free.app/login",
       { username, password }
     );
       if (res.data.success) {

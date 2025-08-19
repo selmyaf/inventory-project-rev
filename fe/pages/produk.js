@@ -33,7 +33,7 @@ export default function ProdukPage() {
 
   const fetchProduk = async () => {
     try {
-      const res = await axios.get("https://89b809a86d32.ngrok-free.app/produk");
+      const res = await axios.get("https://df7ba32be060.ngrok-free.app/produk");
       setProduk(res.data);
     } catch (err) {
       console.error(err);
@@ -42,7 +42,7 @@ export default function ProdukPage() {
 
   const fetchKategori = async () => {
     try {
-      const res = await axios.get("https://89b809a86d32.ngrok-free.app/kategori");
+      const res = await axios.get("https://df7ba32be060.ngrok-free.app/kategori");
 
       setKategori(res.data);
     } catch (err) {
@@ -73,11 +73,11 @@ export default function ProdukPage() {
 
     try {
       if (isEdit && editId) {
-  await axios.put(`https://89b809a86d32.ngrok-free.app/produk/${editId}`, fd, {
+  await axios.put(`https://df7ba32be060.ngrok-free.app/produk/${editId}`, fd, {
     headers: { "Content-Type": "multipart/form-data" },
   });
 } else {
-  await axios.post("https://89b809a86d32.ngrok-free.app/produk", fd, {
+  await axios.post("https://df7ba32be060.ngrok-free.app/produk", fd, {
     headers: { "Content-Type": "multipart/form-data" },
   });
 }
@@ -116,7 +116,7 @@ export default function ProdukPage() {
     if (confirm("Yakin mau hapus produk ini?")) {
       try {
 
-        await axios.delete(`https://89b809a86d32.ngrok-free.app/produk/${id}`);
+        await axios.delete(`https://df7ba32be060.ngrok-free.app/produk/${id}`);
 
         fetchProduk();
       } catch (err) {
@@ -145,7 +145,7 @@ export default function ProdukPage() {
     return files
       .map( 
         (f) =>
-  `<img src="https://89b809a86d32.ngrok-free.app/uploads/${f.trim()}" class="w-16 h-16 inline-block mr-1 rounded" />`
+  `<img src="https://df7ba32be060.ngrok-free.app/${f.trim()}" class="w-16 h-16 inline-block mr-1 rounded" />`
 )
 .join("");
 
@@ -261,7 +261,7 @@ export default function ProdukPage() {
               {formData.foto_produk_lama.map((f, idx) => (
                 <img
                   key={idx}
-                  src={`http://localhost:5000/uploads/${f}`}
+                  src={`https://df7ba32be060.ngrok-free.app/uploads/${f}`}
                   alt={`Foto lama ${idx}`}
                   className="w-16 h-16 rounded object-cover"
                 />
