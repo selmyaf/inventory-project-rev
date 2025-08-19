@@ -7,6 +7,8 @@ const bodyParser = require("body-parser");
 const multer = require("multer");
 const path = require("path");
 
+
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "uploads/");
@@ -28,6 +30,7 @@ const db = mysql.createConnection({
   database: "inventory_db", 
   port: 3306
 });
+
 
 db.connect((err) => {
   if (err) throw err;
@@ -275,5 +278,11 @@ app.get("/produk-laporan", (req, res) => {
     res.json(results);
   });
 });
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+
 
 
