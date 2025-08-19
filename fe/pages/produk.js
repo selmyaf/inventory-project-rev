@@ -33,7 +33,7 @@ export default function ProdukPage() {
 
   const fetchProduk = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/produk");
+      const res = await axios.get("https://89b809a86d32.ngrok-free.app/produk");
       setProduk(res.data);
     } catch (err) {
       console.error(err);
@@ -42,7 +42,8 @@ export default function ProdukPage() {
 
   const fetchKategori = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/kategori");
+      const res = await axios.get("https://89b809a86d32.ngrok-free.app/kategori");
+
       setKategori(res.data);
     } catch (err) {
       console.error(err);
@@ -72,18 +73,14 @@ export default function ProdukPage() {
 
     try {
       if (isEdit && editId) {
-        await axios.put(`http://localhost:5000/produk/${editId}`, fd, {
-          headers: { "Content-Type": "multipart/form-data" },
-        });
-      } else {
-        if (formData.foto_produk.length < 3) {
-          alert("Minimal 3 foto wajib diupload");
-          return;
-        }
-        await axios.post("http://localhost:5000/produk", fd, {
-          headers: { "Content-Type": "multipart/form-data" },
-        });
-      }
+  await axios.put(`https://89b809a86d32.ngrok-free.app/produk/${editId}`, fd, {
+    headers: { "Content-Type": "multipart/form-data" },
+  });
+} else {
+  await axios.post("https://89b809a86d32.ngrok-free.app/produk", fd, {
+    headers: { "Content-Type": "multipart/form-data" },
+  });
+}
 
       setFormData({
         id_kategori: "",
@@ -118,7 +115,9 @@ export default function ProdukPage() {
   const handleDelete = async (id) => {
     if (confirm("Yakin mau hapus produk ini?")) {
       try {
-        await axios.delete(`http://localhost:5000/produk/${id}`);
+
+        await axios.delete(`https://89b809a86d32.ngrok-free.app/produk/${id}`);
+
         fetchProduk();
       } catch (err) {
         console.error(err);
@@ -146,9 +145,10 @@ export default function ProdukPage() {
     return files
       .map( 
         (f) =>
-          `<img src="http://localhost:5000/uploads/${f.trim()}" class="w-16 h-16 inline-block mr-1 rounded" />`
-      )
-      .join("");
+  `<img src="https://89b809a86d32.ngrok-free.app/uploads/${f.trim()}" class="w-16 h-16 inline-block mr-1 rounded" />`
+)
+.join("");
+
   },
 },
 
