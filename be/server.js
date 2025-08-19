@@ -4,25 +4,16 @@ const cors = require("cors");
 const multer = require("multer");
 const path = require("path");
 
-const express = require("express");
-const cors = require("cors");
 const app = express();
 
-// --- PASANG CORS DI SINI, PERTAMA ---
-const allowedOrigins = ["https://inventory-project-rev-git-main-sells-projects.vercel.app"];
-app.use(cors({
-  origin: allowedOrigins,
-  methods: ["GET","POST","PUT","DELETE","OPTIONS"],
-  credentials: true
-}));
 
-// Untuk preflight
-app.options("*", cors());
+// --- CORS ---
+app.use(cors());
+app.options("*", cors()); // handle preflight request
 
-// --- BODY PARSER ---
+// --- Body parser ---
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 
 // --- Upload Multer ---
 const storage = multer.diskStorage({
