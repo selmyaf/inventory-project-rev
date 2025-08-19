@@ -19,7 +19,7 @@ export default function LaporanPage() {
   }, []);
 
   const fetchProduk = async () => {
-  const res = await axios.get("https://df7ba32be060.ngrok-free.app/produk-laporan");
+  const res = await axios.get("https://e28f23332f61.ngrok-free.app/produk-laporan");
   setProduk(res.data);
 };
 
