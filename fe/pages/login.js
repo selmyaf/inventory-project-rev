@@ -13,7 +13,10 @@ export default function LoginPage() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/login", { username, password });
+      const res = await axios.post(
+      "https://89b809a86d32.ngrok-free.app/login",
+      { username, password }
+    );
       if (res.data.success) {
         alert("Login berhasil!");
         router.push("/kategori");
