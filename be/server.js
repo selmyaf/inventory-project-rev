@@ -6,9 +6,6 @@ const path = require("path");
 
 const app = express();
 
-// --- CORS ---
-app.use(cors());
-
 // --- Body parser ---
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -18,10 +15,6 @@ app.use(cors({
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
 }));
-
-app.options("*", (req, res) => {
-  res.sendStatus(200);
-});
 
 // --- Upload Multer ---
 const storage = multer.diskStorage({
