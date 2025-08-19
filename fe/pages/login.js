@@ -13,10 +13,8 @@ export default function LoginPage() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(
-      "https://e28f23332f61.ngrok-free.app/login",
-      { username, password }
-    );
+      const res = await axios.post("http://localhost:5000/login", { username, password });
+      
       if (res.data.success) {
         alert("Login berhasil!");
         router.push("/kategori");
@@ -24,18 +22,9 @@ export default function LoginPage() {
         alert(res.data.message);
       }
     } catch (err) {
-  if (err.response) {
-    // Server balikin error (misal 400, 401, 500)
-    alert(`❌ Error ${err.response.status}: ${err.response.data.message || "Terjadi kesalahan"}`);
-  } else if (err.request) {
-    // Request terkirim tapi server gak respon
-    alert("⚠️ Server tidak merespon. Coba cek ngrok atau koneksi internet.");
-  } else {
-    // Error lain
-    alert("⚡ Error: " + err.message);
-  }
-}
-
+      console.error(err);
+      alert("Terjadi kesalahan pada server");
+    }
   };
 
   return (

@@ -18,7 +18,7 @@ export default function KategoriPage() {
 
   const fetchKategori = async () => {
     try {
-      const res = await axios.get("https://e28f23332f61.ngrok-free.app/kategori");
+      const res = await axios.get("http://localhost:5000/kategori");
       setKategori(res.data);
       if (dataTableRef.current) {
         dataTableRef.current.clear().rows.add(res.data).draw();
@@ -63,8 +63,7 @@ export default function KategoriPage() {
       const id = $(this).data("id");
       if (confirm("Yakin mau hapus kategori ini?")) {
         try {
-          const res = await axios.delete(`https://e28f23332f61.ngrok-free.app/kategori/${id}`);
-
+          const res = await axios.delete(`http://localhost:5000/kategori/${id}`);
           if (!res.data.success) alert(res.data.message);
           fetchKategori();
         } catch (err) {
@@ -83,9 +82,9 @@ export default function KategoriPage() {
 
     try {
       if (editId) {
-        await axios.put(`https://e28f23332f61.ngrok-free.app/kategori/${editId}`, { nama_kategori: namaKategori });
+        await axios.put(`http://localhost:5000/kategori/${editId}`, { nama_kategori: namaKategori });
       } else {
-        await axios.post("https://e28f23332f61.ngrok-free.app/kategori", { nama_kategori: namaKategori });
+        await axios.post("http://localhost:5000/kategori", { nama_kategori: namaKategori });
       }
       setNamaKategori("");
       setEditId(null);
