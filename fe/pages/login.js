@@ -45,7 +45,7 @@ export default function LoginPage() {
 
         <form onSubmit={handleLogin} className="flex flex-col gap-4 items-center">
           <div className="flex flex-col w-80 mx-auto">
-            <label className="mb-1 text-sm font-semibold text-black">Username</label>
+            <label className="mb-1 text-sm font-semibold text-black">sername</label>
             <input
               type="text"
               value={username}
