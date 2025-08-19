@@ -8,7 +8,6 @@ const app = express();
 
 // --- CORS ---
 app.use(cors());
-app.options("*", cors()); // handle preflight request
 
 // --- Body parser ---
 app.use(express.json());
